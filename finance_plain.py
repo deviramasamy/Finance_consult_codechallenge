@@ -4,16 +4,6 @@ from datetime import datetime
 import uuid
 from delta import *
 
-# Set up the storage account credentials
-spark.conf.set("fs.azure.account.key.devistorageaccount1.blob.core.windows.net", "XYpQZZ3QlR8uSmxzycEYXWQfq2bi9OyK/gkqYiPpu73a6OaaKB5ErdW/jBZqVzFjXF3V0sQR4TCq+AStwixMRg==")
-
-# Set the path to the file
-storage_account_name = "devistorageaccount1"
-container_name = "container1"
-file_name = "customers.csv"
-file_path = f"wasbs://{container_name}@{storage_account_name}.blob.core.windows.net/{file_name}"
-
-
 spark = SparkSession.builder \
     .appName("myApp") \
     .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
